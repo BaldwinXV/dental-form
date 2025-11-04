@@ -181,12 +181,13 @@ form {
 .form-section {
     margin-bottom: 50px;
     padding: 40px;
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.03) 0%, rgba(118, 75, 162, 0.03) 100%);
     border-radius: 20px;
-    border: 1px solid rgba(102, 126, 234, 0.1);
+    border: 2px solid rgba(102, 126, 234, 0.12);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.08);
 }
 
 .form-section::before {
@@ -200,9 +201,22 @@ form {
     border-radius: 20px 0 0 20px;
 }
 
+.form-section::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(102, 126, 234, 0.05) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
 .form-section:hover {
-    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.15);
-    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(102, 126, 234, 0.18);
+    transform: translateY(-3px);
+    border-color: rgba(102, 126, 234, 0.2);
 }
 
 .form-section h2 {
@@ -244,6 +258,7 @@ label {
     font-weight: 600;
     font-size: 0.95em;
     letter-spacing: 0.3px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
 }
 
 input[type="text"],
@@ -254,12 +269,24 @@ select,
 textarea {
     width: 100%;
     padding: 14px 18px;
-    border: 2px solid #e8ecf1;
+    border: 2px solid rgba(102, 126, 234, 0.2);
     border-radius: 12px;
     font-size: 1em;
     font-family: inherit;
     transition: all 0.3s ease;
-    background: white;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+    color: #2c3e50;
+    box-shadow: inset 0 1px 3px rgba(102, 126, 234, 0.05);
+}
+
+input[type="text"]:hover,
+input[type="email"]:hover,
+input[type="tel"]:hover,
+input[type="date"]:hover,
+select:hover,
+textarea:hover {
+    border-color: rgba(102, 126, 234, 0.4);
+    background: linear-gradient(135deg, #ffffff 0%, #f5f7ff 100%);
 }
 
 input[type="text"]:focus,
@@ -270,13 +297,28 @@ select:focus,
 textarea:focus {
     outline: none;
     border-color: #667eea;
-    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+    background: linear-gradient(135deg, #ffffff 0%, #f0f3ff 100%);
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15), inset 0 1px 3px rgba(102, 126, 234, 0.1);
     transform: translateY(-2px);
 }
 
 textarea {
     resize: vertical;
     min-height: 100px;
+    line-height: 1.6;
+}
+
+select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23667eea' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    padding-right: 40px;
+}
+
+select:hover {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23764ba2' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
 }
 
 .checkbox-group,
@@ -305,15 +347,17 @@ textarea {
     cursor: pointer;
     transition: all 0.3s ease;
     border-radius: 10px;
-    background: white;
-    border: 2px solid #e8ecf1;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+    border: 2px solid rgba(102, 126, 234, 0.15);
+    box-shadow: 0 2px 4px rgba(102, 126, 234, 0.05);
 }
 
 .checkbox-grid label:hover,
 .radio-options label:hover {
-    background: rgba(102, 126, 234, 0.05);
+    background: linear-gradient(135deg, #f0f3ff 0%, #e8ecff 100%);
     border-color: #667eea;
     transform: translateX(5px);
+    box-shadow: 0 4px 8px rgba(102, 126, 234, 0.15);
 }
 
 .checkbox-grid input[type="checkbox"],
@@ -334,35 +378,47 @@ textarea {
 
 .consent-text {
     background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
-    padding: 25px;
+    padding: 25px 30px;
     border-radius: 15px;
     margin-bottom: 25px;
     border-left: 5px solid #667eea;
     position: relative;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.08);
+}
+
+.consent-text::before {
+    content: '📋';
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 2em;
+    opacity: 0.3;
 }
 
 .consent-text p {
     margin-bottom: 12px;
     color: #34495e;
-    line-height: 1.7;
+    line-height: 1.8;
+    font-size: 0.95em;
 }
 
 #signatureCanvas {
-    border: 3px solid #e8ecf1;
+    border: 3px solid rgba(102, 126, 234, 0.25);
     border-radius: 15px;
     cursor: crosshair;
     display: block;
     width: 100%;
     max-width: 600px;
     height: 200px;
-    background: linear-gradient(to bottom, #ffffff 0%, #f8f9fa 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #f5f7ff 100%);
     transition: all 0.3s ease;
-    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 2px 10px rgba(102, 126, 234, 0.08), 0 4px 12px rgba(102, 126, 234, 0.1);
 }
 
 #signatureCanvas:hover {
     border-color: #667eea;
-    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.05), 0 0 0 4px rgba(102, 126, 234, 0.1);
+    background: linear-gradient(135deg, #ffffff 0%, #f0f3ff 100%);
+    box-shadow: inset 0 2px 10px rgba(102, 126, 234, 0.1), 0 0 0 4px rgba(102, 126, 234, 0.15);
 }
 
 #signatureCanvas.print-mode {
@@ -533,14 +589,15 @@ textarea {
 }
 
 .patient-card {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 249, 250, 0.9) 100%);
-    border: 2px solid rgba(102, 126, 234, 0.15);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 255, 0.95) 100%);
+    border: 2px solid rgba(102, 126, 234, 0.2);
     border-radius: 20px;
     padding: 30px;
     margin-bottom: 25px;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.1);
 }
 
 .patient-card::before {
@@ -553,9 +610,19 @@ textarea {
     background: var(--primary-gradient);
 }
 
+.patient-card::after {
+    content: '👤';
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 3em;
+    opacity: 0.08;
+}
+
 .patient-card:hover {
-    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2);
+    box-shadow: 0 18px 45px rgba(102, 126, 234, 0.22);
     transform: translateY(-5px);
+    border-color: rgba(102, 126, 234, 0.35);
 }
 
 .patient-card h3 {
