@@ -686,3 +686,19 @@ document.getElementById('downloadData').addEventListener('click', () => {
 
 // Initialize language on page load
 updateLanguage();
+
+// Handle pregnancy question visibility based on gender
+const genderSelect = document.getElementById('gender');
+const pregnancyQuestion = document.getElementById('pregnancyQuestion');
+
+genderSelect.addEventListener('change', function() {
+    if (this.value === 'female') {
+        pregnancyQuestion.style.display = 'block';
+    } else {
+        pregnancyQuestion.style.display = 'none';
+        // Clear pregnancy selection when hidden
+        document.querySelectorAll('input[name="pregnant"]').forEach(input => {
+            input.checked = false;
+        });
+    }
+});
