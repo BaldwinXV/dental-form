@@ -275,7 +275,7 @@ form {
 label {
     display: block;
     margin-bottom: 10px;
-    color: #ffffff;
+    color: #e8f0f7;
     font-weight: 600;
     font-size: 0.95em;
     letter-spacing: 0.3px;
@@ -358,14 +358,14 @@ select {
 .checkbox-label {
     margin-bottom: 15px;
     font-weight: 600;
-    color: #ffffff;
+    color: #e8f0f7;
     font-size: 1em;
 }
 
 .radio-group > label {
     margin-bottom: 15px;
     font-weight: 600;
-    color: #ffffff;
+    color: #e8f0f7;
     font-size: 1em;
 }
 
