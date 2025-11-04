@@ -1,0 +1,1135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    --success-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    --dark-bg: #1a1a2e;
+    --card-bg: #16213e;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.3);
+    --shadow-xl: 0 30px 80px rgba(0, 0, 0, 0.4);
+    --glow: 0 0 20px rgba(102, 126, 234, 0.5);
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    min-height: 100vh;
+    padding: 40px 20px;
+    line-height: 1.6;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Animated background particles */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(118, 75, 162, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(79, 172, 254, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 30px;
+    box-shadow: var(--shadow-xl);
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Glowing border effect */
+.container::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: var(--primary-gradient);
+    border-radius: 30px;
+    z-index: -1;
+    opacity: 0.5;
+    filter: blur(10px);
+}
+
+header {
+    background: var(--primary-gradient);
+    color: white;
+    padding: 50px 40px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animated gradient overlay */
+header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.language-selector {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    display: flex;
+    gap: 12px;
+    z-index: 10;
+}
+
+.lang-btn {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    padding: 10px 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-size: 0.9em;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.lang-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.5s, height 0.5s;
+}
+
+.lang-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.lang-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.lang-btn.active {
+    background: white;
+    color: #667eea;
+    border-color: white;
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+header h1 {
+    font-size: 3em;
+    margin-bottom: 15px;
+    font-weight: 800;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    letter-spacing: -1px;
+    margin-top: 10px;
+}
+
+.subtitle {
+    font-size: 1.2em;
+    opacity: 0.95;
+    position: relative;
+    z-index: 1;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+form {
+    padding: 50px 40px;
+}
+
+.form-section {
+    margin-bottom: 50px;
+    padding: 40px;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+    border-radius: 20px;
+    border: 1px solid rgba(102, 126, 234, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.form-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: var(--primary-gradient);
+    border-radius: 20px 0 0 20px;
+}
+
+.form-section:hover {
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.15);
+    transform: translateY(-2px);
+}
+
+.form-section h2 {
+    color: #667eea;
+    margin-bottom: 30px;
+    font-size: 2em;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.form-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: var(--primary-gradient);
+    border-radius: 2px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 0.95em;
+    letter-spacing: 0.3px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid #e8ecf1;
+    border-radius: 12px;
+    font-size: 1em;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+    transform: translateY(-2px);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.checkbox-group,
+.radio-group {
+    margin-bottom: 25px;
+}
+
+.checkbox-label {
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.checkbox-grid label,
+.radio-options label {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    background: white;
+    border: 2px solid #e8ecf1;
+}
+
+.checkbox-grid label:hover,
+.radio-options label:hover {
+    background: rgba(102, 126, 234, 0.05);
+    border-color: #667eea;
+    transform: translateX(5px);
+}
+
+.checkbox-grid input[type="checkbox"],
+.radio-options input[type="radio"] {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #667eea;
+}
+
+.radio-options {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.consent-text {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    border-left: 5px solid #667eea;
+    position: relative;
+}
+
+.consent-text p {
+    margin-bottom: 12px;
+    color: #34495e;
+    line-height: 1.7;
+}
+
+#signatureCanvas {
+    border: 3px solid #e8ecf1;
+    border-radius: 15px;
+    cursor: crosshair;
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    height: 200px;
+    background: linear-gradient(to bottom, #ffffff 0%, #f8f9fa 100%);
+    transition: all 0.3s ease;
+    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+#signatureCanvas:hover {
+    border-color: #667eea;
+    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.05), 0 0 0 4px rgba(102, 126, 234, 0.1);
+}
+
+#signatureCanvas.print-mode {
+    background: white;
+    cursor: default;
+    border-style: dashed;
+    border-color: #999;
+    position: relative;
+}
+
+.signature-mode-buttons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.signature-mode-btn {
+    flex: 1;
+    padding: 14px 24px;
+    border: 2px solid #e8ecf1;
+    border-radius: 12px;
+    background: white;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-size: 0.95em;
+    position: relative;
+    overflow: hidden;
+}
+
+.signature-mode-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(102, 126, 234, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s, height 0.4s;
+}
+
+.signature-mode-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.signature-mode-btn.active {
+    background: var(--primary-gradient);
+    color: white;
+    border-color: #667eea;
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+    transform: scale(1.02);
+}
+
+.signature-mode-btn:hover:not(.active) {
+    border-color: #667eea;
+    transform: translateY(-2px);
+}
+
+.signature-buttons {
+    margin-top: 15px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.form-actions {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.btn-primary,
+.btn-secondary {
+    padding: 16px 40px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    background: var(--primary-gradient);
+    color: white;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.5s, height 0.5s;
+}
+
+.btn-primary:hover::before {
+    width: 400px;
+    height: 400px;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    color: #2c3e50;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary:hover {
+    background: linear-gradient(135deg, #e8ecf1 0%, #b8c6db 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.success-message {
+    padding: 60px 50px;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(67, 233, 123, 0.1) 0%, rgba(56, 249, 215, 0.1) 100%);
+}
+
+.success-message h3 {
+    color: #43e97b;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    font-weight: 800;
+    text-shadow: 0 2px 10px rgba(67, 233, 123, 0.2);
+}
+
+.success-message p {
+    font-size: 1.3em;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.success-message button {
+    margin: 12px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.patients-view {
+    padding: 40px;
+}
+
+.patients-view h2 {
+    color: #667eea;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    font-weight: 700;
+}
+
+.patient-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 249, 250, 0.9) 100%);
+    border: 2px solid rgba(102, 126, 234, 0.15);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.patient-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: var(--primary-gradient);
+}
+
+.patient-card:hover {
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2);
+    transform: translateY(-5px);
+}
+
+.patient-card h3 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    font-weight: 700;
+}
+
+.patient-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 15px;
+}
+
+.patient-info p {
+    color: #555;
+    margin-bottom: 10px;
+    padding: 8px;
+    border-radius: 8px;
+    background: rgba(102, 126, 234, 0.03);
+}
+
+.patient-info strong {
+    color: #2c3e50;
+}
+
+.signature-display {
+    margin-top: 20px;
+    border: 3px solid #e8ecf1;
+    border-radius: 15px;
+    background: white;
+    padding: 15px;
+    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.signature-display img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.patient-actions {
+    margin-top: 20px;
+}
+
+.btn-delete {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(245, 87, 108, 0.3);
+}
+
+.btn-delete:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(245, 87, 108, 0.4);
+}
+
+/* Print signature styling */
+.print-signature-line {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+    position: relative;
+}
+
+.print-signature-line::before {
+    content: 'Patient Signature';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #999;
+    font-size: 0.9em;
+    font-weight: 600;
+}
+
+.print-signature-line::after {
+    content: '';
+    position: absolute;
+    bottom: 40px;
+    left: 20px;
+    right: 20px;
+    height: 2px;
+    background: linear-gradient(to right, #667eea 0%, transparent 100%);
+}
+
+.subtitle {
+    font-size: 1.1em;
+    opacity: 0.9;
+}
+
+form {
+    padding: 30px;
+}
+
+.form-section {
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.form-section:last-of-type {
+    border-bottom: none;
+}
+
+.form-section h2 {
+    color: #667eea;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    display: flex;
+    align-items: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 600;
+    font-size: 0.95em;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1em;
+    font-family: inherit;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.checkbox-group,
+.radio-group {
+    margin-bottom: 20px;
+}
+
+.checkbox-label {
+    margin-bottom: 15px;
+}
+
+.checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.checkbox-grid label,
+.radio-options label {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border-radius: 5px;
+}
+
+.checkbox-grid label:hover,
+.radio-options label:hover {
+    background-color: #f5f5f5;
+}
+
+.checkbox-grid input[type="checkbox"],
+.radio-options input[type="radio"] {
+    margin-right: 8px;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.radio-options {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.consent-text {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border-left: 4px solid #667eea;
+}
+
+.consent-text p {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+#signatureCanvas {
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    cursor: crosshair;
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    height: 200px;
+    background-color: #fafafa;
+}
+
+#signatureCanvas.print-mode {
+    background-color: white;
+    cursor: default;
+}
+
+.signature-mode-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.signature-mode-btn {
+    flex: 1;
+    padding: 10px 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.signature-mode-btn.active {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+}
+
+.signature-mode-btn:hover {
+    border-color: #667eea;
+}
+
+.signature-buttons {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.form-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.btn-primary,
+.btn-secondary {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background: #f0f0f0;
+    color: #333;
+}
+
+.btn-secondary:hover {
+    background: #e0e0e0;
+}
+
+.success-message {
+    padding: 50px;
+    text-align: center;
+}
+
+.success-message h3 {
+    color: #4caf50;
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+.success-message p {
+    font-size: 1.2em;
+    margin-bottom: 25px;
+    color: #666;
+}
+
+.success-message button {
+    margin: 10px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.patients-view {
+    padding: 30px;
+}
+
+.patients-view h2 {
+    color: #667eea;
+    margin-bottom: 20px;
+}
+
+.patient-card {
+    background: #f9f9f9;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.patient-card h3 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+.patient-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 10px;
+}
+
+.patient-info p {
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.patient-info strong {
+    color: #333;
+}
+
+.signature-display {
+    margin-top: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    background: white;
+}
+
+.signature-display img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.patient-actions {
+    margin-top: 15px;
+}
+
+.btn-delete {
+    background: #f44336;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-delete:hover {
+    background: #d32f2f;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 20px 10px;
+    }
+
+    .container {
+        border-radius: 20px;
+    }
+
+    header {
+        padding: 80px 20px 30px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    header h1 {
+        font-size: 2em;
+        margin-top: 0;
+    }
+
+    .subtitle {
+        font-size: 1em;
+    }
+    
+    .language-selector {
+        position: absolute;
+        top: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        justify-content: center;
+        right: auto;
+        gap: 8px;
+    }
+    
+    .lang-btn {
+        font-size: 0.75em;
+        padding: 8px 12px;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+    }
+    
+    #signatureCanvas {
+        width: 100%;
+    }
+    
+    .signature-mode-buttons {
+        flex-direction: column;
+    }
+
+    form {
+        padding: 30px 20px;
+    }
+
+    .form-section {
+        padding: 25px 20px;
+    }
+
+    .form-section h2 {
+        font-size: 1.5em;
+    }
+}
+
+@media print {
+    body {
+        background: white;
+        padding: 0;
+    }
+    
+    body::before {
+        display: none;
+    }
+
+    .container {
+        box-shadow: none;
+        border-radius: 0;
+        max-width: 100%;
+    }
+
+    .container::before {
+        display: none;
+    }
+
+    header {
+        background: #667eea;
+        padding: 30px;
+    }
+
+    header::before {
+        display: none;
+    }
+    
+    .form-actions,
+    .btn-primary,
+    .btn-secondary,
+    #backToForm,
+    #downloadData,
+    .patient-actions,
+    .print-only-hide,
+    .language-selector,
+    .signature-mode-buttons {
+        display: none !important;
+    }
+    
+    #signatureCanvas {
+        border: 2px solid #333;
+        background: white !important;
+        min-height: 150px;
+        border-radius: 8px;
+    }
+
+    #signatureCanvas.print-mode {
+        border-style: solid;
+        border-color: #333;
+        position: relative;
+        background: white !important;
+    }
+
+    /* Create a professional signature line for print */
+    #signatureCanvas.print-mode::after {
+        content: 'Patient Signature: _______________________________________________     Date: ______________';
+        position: absolute;
+        bottom: 30px;
+        left: 20px;
+        right: 20px;
+        color: #333;
+        font-size: 12pt;
+        font-weight: 600;
+        font-family: 'Times New Roman', serif;
+    }
+    
+    .signature-buttons {
+        display: none !important;
+    }
+    
+    .form-section {
+        page-break-inside: avoid;
+        background: white !important;
+        border: 1px solid #ddd;
+        margin-bottom: 20px;
+    }
+
+    .form-section::before {
+        background: #667eea;
+    }
+
+    .form-section:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    input, textarea, select {
+        border: 1px solid #333 !important;
+        background: white !important;
+    }
+
+    .checkbox-grid label,
+    .radio-options label {
+        border: 1px solid #ddd !important;
+        background: white !important;
+    }
+}

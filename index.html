@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dental Patient Intake Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="language-selector">
+                <button class="lang-btn active" data-lang="en">🇬🇧 English</button>
+                <button class="lang-btn" data-lang="tr">🇹🇷 Türkçe</button>
+                <button class="lang-btn" data-lang="al">🇦🇱 Shqip</button>
+            </div>
+            <h1 data-i18n="title">🦷 Dental Patient Intake Form</h1>
+            <p class="subtitle" data-i18n="subtitle">Please fill out all information carefully</p>
+        </header>
+
+        <form id="patientForm">
+            <!-- Personal Information -->
+            <section class="form-section">
+                <h2 data-i18n="personalInfo">Personal Information</h2>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName" data-i18n="firstName">First Name *</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="lastName" data-i18n="lastName">Last Name *</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="dateOfBirth" data-i18n="dateOfBirth">Date of Birth *</label>
+                        <input type="date" id="dateOfBirth" name="dateOfBirth" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="gender" data-i18n="gender">Gender</label>
+                        <select id="gender" name="gender">
+                            <option value="" data-i18n="select">Select...</option>
+                            <option value="male" data-i18n="male">Male</option>
+                            <option value="female" data-i18n="female">Female</option>
+                            <option value="other" data-i18n="other">Other</option>
+                            <option value="prefer-not-to-say" data-i18n="preferNotToSay">Prefer not to say</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="fatherFirstName" data-i18n="fatherFirstName">Father's First Name</label>
+                    <input type="text" id="fatherFirstName" name="fatherFirstName">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone" data-i18n="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email" data-i18n="email">Email</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="address" data-i18n="address">Address</label>
+                    <textarea id="address" name="address" rows="2"></textarea>
+                </div>
+            </section>
+
+            <!-- Medical History -->
+            <section class="form-section">
+                <h2 data-i18n="medicalHistory">Medical History</h2>
+                
+                <div class="form-group">
+                    <label for="allergies" data-i18n="allergies">Allergies (medications, latex, etc.) *</label>
+                    <textarea id="allergies" name="allergies" rows="3" data-i18n-placeholder="allergiesPlaceholder" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="medications" data-i18n="medications">Current Medications</label>
+                    <textarea id="medications" name="medications" rows="3" data-i18n-placeholder="medicationsPlaceholder"></textarea>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <label class="checkbox-label" data-i18n="conditionsQuestion">Do you have any of the following conditions?</label>
+                    <div class="checkbox-grid">
+                        <label><input type="checkbox" name="conditions" value="heart-disease"> <span data-i18n="heartDisease">Heart Disease</span></label>
+                        <label><input type="checkbox" name="conditions" value="high-blood-pressure"> <span data-i18n="highBloodPressure">High Blood Pressure</span></label>
+                        <label><input type="checkbox" name="conditions" value="diabetes"> <span data-i18n="diabetes">Diabetes</span></label>
+                        <label><input type="checkbox" name="conditions" value="asthma"> <span data-i18n="asthma">Asthma</span></label>
+                        <label><input type="checkbox" name="conditions" value="bleeding-disorder"> <span data-i18n="bleedingDisorder">Bleeding Disorder</span></label>
+                        <label><input type="checkbox" name="conditions" value="hepatitis"> <span data-i18n="hepatitis">Hepatitis</span></label>
+                        <label><input type="checkbox" name="conditions" value="hiv-aids"> <span data-i18n="hivAids">HIV/AIDS</span></label>
+                        <label><input type="checkbox" name="conditions" value="arthritis"> <span data-i18n="arthritis">Arthritis</span></label>
+                        <label><input type="checkbox" name="conditions" value="epilepsy"> <span data-i18n="epilepsy">Epilepsy</span></label>
+                        <label><input type="checkbox" name="conditions" value="kidney-disease"> <span data-i18n="kidneyDisease">Kidney Disease</span></label>
+                        <label><input type="checkbox" name="conditions" value="liver-disease"> <span data-i18n="liverDisease">Liver Disease</span></label>
+                        <label><input type="checkbox" name="conditions" value="cancer"> <span data-i18n="cancer">Cancer</span></label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="otherConditions" data-i18n="otherConditions">Other Medical Conditions</label>
+                    <textarea id="otherConditions" name="otherConditions" rows="2"></textarea>
+                </div>
+
+                <div class="form-group radio-group">
+                    <label data-i18n="pregnantQuestion">Are you pregnant?</label>
+                    <div class="radio-options">
+                        <label><input type="radio" name="pregnant" value="yes"> <span data-i18n="yes">Yes</span></label>
+                        <label><input type="radio" name="pregnant" value="no"> <span data-i18n="no">No</span></label>
+                        <label><input type="radio" name="pregnant" value="na"> <span data-i18n="na">N/A</span></label>
+                    </div>
+                </div>
+
+                <div class="form-group radio-group">
+                    <label data-i18n="tobaccoQuestion">Do you smoke or use tobacco?</label>
+                    <div class="radio-options">
+                        <label><input type="radio" name="tobacco" value="yes"> <span data-i18n="yes">Yes</span></label>
+                        <label><input type="radio" name="tobacco" value="no"> <span data-i18n="no">No</span></label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dental History -->
+            <section class="form-section">
+                <h2 data-i18n="dentalHistory">Dental History</h2>
+                
+                <div class="form-group">
+                    <label for="lastDentalVisit" data-i18n="lastDentalVisit">Last Dental Visit</label>
+                    <input type="date" id="lastDentalVisit" name="lastDentalVisit">
+                </div>
+
+                <div class="form-group">
+                    <label for="dentalConcerns" data-i18n="dentalConcerns">Current Dental Concerns or Pain</label>
+                    <textarea id="dentalConcerns" name="dentalConcerns" rows="3" data-i18n-placeholder="dentalConcernsPlaceholder"></textarea>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <label class="checkbox-label" data-i18n="dentalIssuesQuestion">Have you experienced any of the following?</label>
+                    <div class="checkbox-grid">
+                        <label><input type="checkbox" name="dentalIssues" value="bleeding-gums"> <span data-i18n="bleedingGums">Bleeding Gums</span></label>
+                        <label><input type="checkbox" name="dentalIssues" value="tooth-pain"> <span data-i18n="toothPain">Tooth Pain</span></label>
+                        <label><input type="checkbox" name="dentalIssues" value="jaw-pain"> <span data-i18n="jawPain">Jaw Pain</span></label>
+                        <label><input type="checkbox" name="dentalIssues" value="sensitivity"> <span data-i18n="sensitivity">Sensitivity</span></label>
+                        <label><input type="checkbox" name="dentalIssues" value="bad-breath"> <span data-i18n="badBreath">Bad Breath</span></label>
+                        <label><input type="checkbox" name="dentalIssues" value="loose-teeth"> <span data-i18n="looseTeeth">Loose Teeth</span></label>
+                    </div>
+                </div>
+
+                <div class="form-group radio-group">
+                    <label data-i18n="dentalAnxietyQuestion">Do you have anxiety about dental procedures?</label>
+                    <div class="radio-options">
+                        <label><input type="radio" name="dentalAnxiety" value="none"> <span data-i18n="noAnxiety">No anxiety</span></label>
+                        <label><input type="radio" name="dentalAnxiety" value="mild"> <span data-i18n="mild">Mild</span></label>
+                        <label><input type="radio" name="dentalAnxiety" value="moderate"> <span data-i18n="moderate">Moderate</span></label>
+                        <label><input type="radio" name="dentalAnxiety" value="severe"> <span data-i18n="severe">Severe</span></label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Emergency Contact -->
+            <section class="form-section">
+                <h2 data-i18n="emergencyContact">Emergency Contact</h2>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="emergencyName" data-i18n="emergencyName">Contact Name *</label>
+                        <input type="text" id="emergencyName" name="emergencyName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="emergencyRelation" data-i18n="emergencyRelation">Relationship *</label>
+                        <input type="text" id="emergencyRelation" name="emergencyRelation" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="emergencyPhone" data-i18n="emergencyPhone">Emergency Phone *</label>
+                    <input type="tel" id="emergencyPhone" name="emergencyPhone" required>
+                </div>
+            </section>
+
+            <!-- Consent and Signature -->
+            <section class="form-section">
+                <h2 data-i18n="consentSignature">Consent and Signature</h2>
+                
+                <div class="consent-text">
+                    <p data-i18n="consentText1">I certify that the above information is complete and accurate to the best of my knowledge. I understand that this information will be used to provide appropriate dental care and that I am responsible for informing the dental office of any changes to my medical status.</p>
+                    <p data-i18n="consentText2">I authorize the dental staff to perform necessary dental procedures and understand that I will be informed of treatment plans before any major procedures.</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="signature" data-i18n="patientSignature">Patient Signature *</label>
+                    <div class="signature-mode-buttons">
+                        <button type="button" id="digitalSignatureBtn" class="signature-mode-btn active" data-i18n="digitalSignature">Digital Signature</button>
+                        <button type="button" id="printSignatureBtn" class="signature-mode-btn" data-i18n="printSignature">Print for Manual Signature</button>
+                    </div>
+                    <canvas id="signatureCanvas" width="600" height="200"></canvas>
+                    <div class="signature-buttons">
+                        <button type="button" id="clearSignature" class="btn-secondary" data-i18n="clearSignature">Clear Signature</button>
+                        <button type="button" id="printForm" class="btn-secondary print-only-hide" data-i18n="printForm">🖨️ Print Form</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="signatureDate" data-i18n="date">Date *</label>
+                    <input type="date" id="signatureDate" name="signatureDate" required>
+                </div>
+            </section>
+
+            <div class="form-actions">
+                <button type="submit" class="btn-primary" data-i18n="submitForm">Submit Patient Information</button>
+                <button type="button" id="resetForm" class="btn-secondary" data-i18n="resetForm">Reset Form</button>
+            </div>
+        </form>
+
+        <div id="successMessage" class="success-message hidden">
+            <h3 data-i18n="successTitle">✓ Form Submitted Successfully!</h3>
+            <p data-i18n="successMessage">Patient information has been saved.</p>
+            <button id="viewPatients" class="btn-primary" data-i18n="viewPatients">View All Patients</button>
+            <button id="newPatient" class="btn-secondary" data-i18n="addNewPatient">Add New Patient</button>
+        </div>
+
+        <div id="patientsView" class="patients-view hidden">
+            <h2 data-i18n="patientRecords">Patient Records</h2>
+            <button id="backToForm" class="btn-secondary" data-i18n="backToForm">← Back to Form</button>
+            <div id="patientsList"></div>
+            <button id="downloadData" class="btn-primary" data-i18n="downloadRecords">Download All Records (JSON)</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
