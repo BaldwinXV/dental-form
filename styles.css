@@ -359,6 +359,14 @@ select {
     margin-bottom: 15px;
     font-weight: 600;
     color: #ffffff;
+    font-size: 1em;
+}
+
+.radio-group > label {
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 1em;
 }
 
 .checkbox-grid {
@@ -380,6 +388,11 @@ select {
     border: 2px solid rgba(0, 180, 216, 0.25);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     font-weight: 500;
+    color: #e8f0f7;
+}
+
+.checkbox-grid label span,
+.radio-options label span {
     color: #e8f0f7;
 }
 
