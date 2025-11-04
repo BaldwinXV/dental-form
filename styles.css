@@ -350,6 +350,12 @@ select {
     background-size: 16px;
 }
 
+select option {
+    background: #1a2838;
+    color: #e8f0f7;
+    padding: 10px;
+}
+
 .checkbox-group,
 .radio-group {
     margin-bottom: 25px;
